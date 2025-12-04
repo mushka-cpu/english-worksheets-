@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Review - Crime & Law</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%);
+            padding: 10px;
+            font-size: 11px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            font-size: 14px;
+        }
+        
+        .header .timer {
+            margin-top: 10px;
+            font-size: 16px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        
+        .part-section {
+            page-break-before: always;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #c0392b;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #c0392b;
+        }
+        
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .vocab-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #c0392b;
+        }
+        
+        .vocab-card .english {
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .vocab-card .russian {
+            color: #7f8c8d;
+            font-size: 11px;
+        }
+        
+        .category-header {
+            background: #c0392b;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .vocab-category {
+            page-break-inside: avoid;
+        }
+        
+        .exercise-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .exercise-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            margin-bottom: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        
+        input[type="text"], textarea {
+            border: 1px solid #c0392b;
+            border-radius: 4px;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #8e44ad;
+            box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.2);
+        }
+        
+        .word-bank {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        
+        .speaking-section {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .speaking-section h4 {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .speaking-section textarea {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            color: #2c3e50;
+        }
+        
+        .answer-key {
+            background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .answer-key h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .checklist {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .checklist-item {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%);
+            color: white;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        
+        .save-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .save-button:hover {
+        }
+        
+        .clear-button {
+            position: fixed;
+            top: 20px;
+            right: 160px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .clear-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            background: #00a084;
+            transform: translateY(-2px);
+        }
+        
+        .check-button {
+            background: #c0392b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .check-button:hover {
+            background: #8e44ad;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .show-answer-button {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .show-answer-button:hover {
+            background: #00a084;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .feedback {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .feedback.correct {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+        
+        .feedback.incorrect {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+        
+        .feedback.partial {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            display: block;
+        }
+        
+        input.correct-answer {
+            border: 2px solid #28a745 !important;
+            background: #d4edda !important;
+        }
+        
+        input.wrong-answer {
+            border: 2px solid #dc3545 !important;
+            background: #f8d7da !important;
+        }
+        
+        .score-badge {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .save-button, .check-button, .show-answer-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        // Show iOS instructions if on iOS
+        window.addEventListener('DOMContentLoaded', function() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                const iosHelp = document.createElement('div');
+                iosHelp.style.cssText = 'position: fixed; bottom: 80px; right: 20px; background: #c0392b; color: white; padding: 15px; border-radius: 10px; font-size: 11px; max-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999;';
+                iosHelp.innerHTML = '<strong>📱 iOS: How to Save PDF</strong><br>1. Tap Save PDF button<br>2. Pinch to zoom preview<br>3. Tap Share icon<br>4. Choose "Save to Files"<br><button onclick="this.parentElement.remove()" style="margin-top: 8px; background: white; color: #c0392b; border: none; padding: 5px 10px; border-radius: 5px; font-weight: bold; cursor: pointer;">Got it!</button>';
+                document.body.appendChild(iosHelp);
+            }
+        });
+        
+        function savePDF() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isAndroid = /Android/.test(navigator.userAgent);
+            
+            if (isIOS || isAndroid) {
+                window.print();
+            } else {
+                try {
+                    const element = document.querySelector('.container');
+                    const opt = {
+                        margin: 10,
+                        filename: 'Crime_Law_Vocabulary_Review.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2, useCORS: true },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+                    html2pdf().set(opt).from(element).save();
+                } catch(e) {
+                    window.print();
+                }
+            }
+        }
+    </script>
+    <button class="clear-button" onclick="clearAllAnswers()">🗑️ Clear All</button>
+    <button class="save-button" onclick="savePDF()">💾 Save PDF</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>⚖️ VOCABULARY REVIEW: CRIME & LAW</h1>
+            <div class="subtitle">Court System • Types of Crime • Justice & Punishment</div>
+            <div class="timer">⏱️ Time: 20-30 minutes</div>
+        </div>
+
+        <!-- PART 1 -->
+        <div class="section">
+            <h2 class="section-title">📖 PART 1: VOCABULARY LIST (5 мин)</h2>
+            
+            <div class="vocab-category">
+                <div class="category-header">👨‍⚖️ Court & Legal System</div>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="english">court / trial</div>
+                        <div class="russian">суд / судебный процесс</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">lawsuit</div>
+                        <div class="russian">судебный иск</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to be accused of</div>
+                        <div class="russian">быть обвинённым в</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">verdict</div>
+                        <div class="russian">вердикт, приговор</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">judge / jury</div>
+                        <div class="russian">судья / присяжные</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to be convicted of</div>
+                        <div class="russian">быть осуждённым за</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to be acquitted of</div>
+                        <div class="russian">быть оправданным</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to drop charges</div>
+                        <div class="russian">снять обвинения</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">witness</div>
+                        <div class="russian">свидетель</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vocab-category">
+                <div class="category-header">🚔 Types of Crime</div>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="english">to commit a crime</div>
+                        <div class="russian">совершить преступление</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">offender</div>
+                        <div class="russian">правонарушитель</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">shoplifting</div>
+                        <div class="russian">кража в магазине</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">pickpocketing</div>
+                        <div class="russian">карманная кража</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">fraud</div>
+                        <div class="russian">мошенничество</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">money laundering</div>
+                        <div class="russian">отмывание денег</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">tax evasion</div>
+                        <div class="russian">уклонение от налогов</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">bribery</div>
+                        <div class="russian">взяточничество</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">human trafficking</div>
+                        <div class="russian">торговля людьми</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vocab-category">
+                <div class="category-header">🔒 Prison & Punishment</div>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="english">prison sentence</div>
+                        <div class="russian">тюремный срок</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to be sentenced to</div>
+                        <div class="russian">быть приговорённым к</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">inmate / convict</div>
+                        <div class="russian">заключённый / осуждённый</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">prison guard</div>
+                        <div class="russian">тюремный охранник</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">parole</div>
+                        <div class="russian">условно-досрочное освобождение</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to re-offend</div>
+                        <div class="russian">повторно совершить преступление</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vocab-category">
+                <div class="category-header">⚖️ Justice & Law</div>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="english">law-abiding citizen</div>
+                        <div class="russian">законопослушный гражданин</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to violate the law</div>
+                        <div class="russian">нарушать закон</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">law enforcement</div>
+                        <div class="russian">правоохранительные органы</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">justice system</div>
+                        <div class="russian">система правосудия</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">investigation</div>
+                        <div class="russian">расследование</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">corruption</div>
+                        <div class="russian">коррупция</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 2 -->
+        <div class="section part-section">
+            <h2 class="section-title">✍️ PART 2: EXERCISES (15 мін)</h2>
+
+            <div class="exercise-box">
+                <div class="exercise-title">🔗 Exercise 1: Match (3 мін)</div>
+                <p style="margin-bottom: 10px;"><strong>Match the terms with their definitions:</strong></p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 11px;">
+                    <div>1. verdict → <input type="text" id="ex1_q1" style="width: 50px;" /></div>
+                    <div>A) снять обвинения</div>
+                    <div>2. witness → <input type="text" id="ex1_q2" style="width: 50px;" /></div>
+                    <div>B) приговор, вердикт</div>
+                    <div>3. to drop charges → <input type="text" id="ex1_q3" style="width: 50px;" /></div>
+                    <div>C) свидетель</div>
+                    <div>4. fraud → <input type="text" id="ex1_q4" style="width: 50px;" /></div>
+                    <div>D) мошенничество</div>
+                    <div>5. parole → <input type="text" id="ex1_q5" style="width: 50px;" /></div>
+                    <div>E) УДО</div>
+                </div>
+                <button class="check-button" onclick="checkExercise1()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers1()">👁️ Show Correct Answers</button>
+                <div id="feedback1" class="feedback"></div>
+            </div>
+
+            <div class="exercise-box">
+                <div class="exercise-title">📝 Exercise 2: Fill the Gaps (5 мін)</div>
+                <div class="word-bank">
+                    convicted, accused, acquitted, sentenced, trial, witness, jury, offender, law-abiding, re-offend
+                </div>
+                <div class="question">1. He was <input type="text" id="ex2_q1" placeholder="type here" /> of murder but claimed he was innocent.</div>
+                <div class="question">2. The <input type="text" id="ex2_q2" placeholder="type here" /> found him guilty after a long trial.</div>
+                <div class="question">3. She was <input type="text" id="ex2_q3" placeholder="type here" /> to 10 years in prison.</div>
+                <div class="question">4. The <input type="text" id="ex2_q4" placeholder="type here" /> testified in court yesterday.</div>
+                <div class="question">5. After investigation, he was <input type="text" id="ex2_q5" placeholder="type here" /> of all charges.</div>
+                <div class="question">6. The <input type="text" id="ex2_q6" placeholder="type here" /> lasted three weeks.</div>
+                <div class="question">7. Most <input type="text" id="ex2_q7" placeholder="type here" /> citizens respect the law.</div>
+                <div class="question">8. Many criminals <input type="text" id="ex2_q8" placeholder="type here" /> after release.</div>
+                <button class="check-button" onclick="checkExercise2()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers2()">👁️ Show Correct Answers</button>
+                <div id="feedback2" class="feedback"></div>
+            </div>
+
+            <div class="exercise-box">
+                <div class="exercise-title">🔄 Exercise 3: Translate to English (4 мін)</div>
+                <div class="question">1. Быть обвинённым в краже → <input type="text" id="ex3_q1" style="width: 300px;" /></div>
+                <div class="question">2. Совершить преступление → <input type="text" id="ex3_q2" style="width: 300px;" /></div>
+                <div class="question">3. Тюремный срок → <input type="text" id="ex3_q3" style="width: 300px;" /></div>
+                <div class="question">4. Нарушать закон → <input type="text" id="ex3_q4" style="width: 300px;" /></div>
+                <div class="question">5. Отмывание денег → <input type="text" id="ex3_q5" style="width: 300px;" /></div>
+                <button class="check-button" onclick="checkExercise3()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers3()">👁️ Show Correct Answers</button>
+                <div id="feedback3" class="feedback"></div>
+            </div>
+
+            <div class="exercise-box">
+                <div class="exercise-title">💭 Exercise 4: Use in Sentences (3 мін)</div>
+                <p style="margin-bottom: 10px; font-size: 11px;"><strong>Create your own sentences with these word pairs:</strong></p>
+                <div class="question">1. <strong>convicted + sentenced</strong><br><textarea id="ex4_q1" placeholder="Write your sentence here..."></textarea></div>
+                <div class="question">2. <strong>law-abiding + justice system</strong><br><textarea id="ex4_q2" placeholder="Write your sentence here..."></textarea></div>
+                <div class="question">3. <strong>fraud + investigation</strong><br><textarea id="ex4_q3" placeholder="Write your sentence here..."></textarea></div>
+            </div>
+        </div>
+
+        <!-- PART 3 -->
+        <div class="section part-section">
+            <h2 class="section-title">💬 PART 3: SPEAKING PRACTICE (10 мін)</h2>
+
+            <div class="speaking-section">
+                <h4>⚖️ Task 1: Court Case Discussion (4 мін)</h4>
+                <p><strong>Q:</strong> "What should happen to someone convicted of fraud?"</p>
+                <p style="font-size: 10px; margin-bottom: 8px;"><strong>Must use:</strong> convicted, sentenced, prison sentence, justice system, re-offend</p>
+                <textarea placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <div class="speaking-section">
+                <h4>🚔 Task 2: Types of Crime (3 мін)</h4>
+                <p><strong>Q:</strong> "Which crimes are most common in your country?"</p>
+                <p style="font-size: 10px; margin-bottom: 8px;"><strong>Must use:</strong> shoplifting, pickpocketing, fraud, tax evasion, law enforcement</p>
+                <textarea placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <div class="speaking-section">
+                <h4>👨‍⚖️ Task 3: Justice System (3 мін)</h4>
+                <p><strong>Q:</strong> "Is the justice system in your country fair?"</p>
+                <p style="font-size: 10px; margin-bottom: 8px;"><strong>Must use:</strong> justice system, corruption, law-abiding citizens, trial, verdict</p>
+                <textarea placeholder="Type your answer here..."></textarea>
+            </div>
+        </div>
+
+        <!-- ANSWER KEY -->
+        <!-- SELF-CHECK -->
+        <div class="section">
+            <h2 class="section-title">📊 SELF-CHECK</h2>
+            <div class="checklist">
+                <div class="checklist-item"><input type="checkbox" /> I can discuss court cases and trials</div>
+                <div class="checklist-item"><input type="checkbox" /> I know different types of crimes</div>
+                <div class="checklist-item"><input type="checkbox" /> I can talk about justice and punishment</div>
+                <div class="checklist-item"><input type="checkbox" /> I understand legal vocabulary</div>
+                <div class="checklist-item"><input type="checkbox" /> I'm ready for the next lesson!</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            ⚖️ Justice served! Great work! 🎯
+        </div>
+    </div>
+    
+    <script>
+        // AUTO-SAVE FUNCTIONALITY
+        const STORAGE_KEY = 'crime_law_answers';
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            loadSavedAnswers();
+            setupAutoSave();
+        });
+        
+        function loadSavedAnswers() {
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            if (savedData) {
+                const answers = JSON.parse(savedData);
+                for (let id in answers) {
+                    const input = document.getElementById(id);
+                    if (input) input.value = answers[id];
+                }
+            }
+        }
+        
+        function saveAnswers() {
+            const answers = {};
+            document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+                if (input.id && input.value) answers[input.id] = input.value;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+        }
+        
+        function setupAutoSave() {
+            document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+                input.addEventListener('input', saveAnswers);
+                input.addEventListener('change', saveAnswers);
+            });
+        }
+        
+        function clearAllAnswers() {
+            if (confirm('⚠️ Are you sure you want to clear all your answers? This cannot be undone.')) {
+                localStorage.removeItem(STORAGE_KEY);
+                document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+                    input.value = '';
+                    input.className = '';
+                });
+                document.querySelectorAll('.feedback').forEach(feedback => {
+                    feedback.innerHTML = '';
+                    feedback.className = 'feedback';
+                });
+                alert('✅ All answers cleared successfully!');
+            }
+        }
+        
+        // Exercise 1 - Matching
+        function checkExercise1() {
+            const answers = {
+                'ex1_q1': ['b', 'B'],
+                'ex1_q2': ['c', 'C'],
+                'ex1_q3': ['a', 'A'],
+                'ex1_q4': ['d', 'D'],
+                'ex1_q5': ['e', 'E']
+            };
+            
+            let correct = 0;
+            let total = 5;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim();
+                
+                if (answers[id].includes(userAnswer)) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback1');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Perfect!</strong> You got all ${correct}/${total} correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 3) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Good job!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Correct answers: 1-B, 2-C, 3-A, 4-D, 5-E`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep trying!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Correct answers: 1-B, 2-C, 3-A, 4-D, 5-E`;
+            }
+        }
+        
+        // Exercise 2 - Fill the gaps
+        function checkExercise2() {
+            const answers = {
+                'ex2_q1': ['accused'],
+                'ex2_q2': ['jury'],
+                'ex2_q3': ['sentenced'],
+                'ex2_q4': ['witness'],
+                'ex2_q5': ['acquitted'],
+                'ex2_q6': ['trial'],
+                'ex2_q7': ['law-abiding', 'law abiding'],
+                'ex2_q8': ['re-offend', 'reoffend']
+            };
+            
+            let correct = 0;
+            let total = 8;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim().toLowerCase();
+                
+                let isCorrect = false;
+                for (let correctAnswer of answers[id]) {
+                    if (userAnswer === correctAnswer.toLowerCase()) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback2');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Excellent!</strong> You got all ${correct}/${total} correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 5) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Good effort!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key below for correct answers.`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep practicing!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key below for correct answers.`;
+            }
+        }
+        
+        // Exercise 3 - Translation
+        function checkExercise3() {
+            const answers = {
+                'ex3_q1': [
+                    "to be accused of theft",
+                    "be accused of theft",
+                    "accused of theft"
+                ],
+                'ex3_q2': [
+                    "to commit a crime",
+                    "commit a crime"
+                ],
+                'ex3_q3': [
+                    "prison sentence",
+                    "a prison sentence"
+                ],
+                'ex3_q4': [
+                    "to violate the law",
+                    "violate the law",
+                    "to break the law",
+                    "break the law"
+                ],
+                'ex3_q5': [
+                    "money laundering"
+                ]
+            };
+            
+            let correct = 0;
+            let total = 5;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim().toLowerCase();
+                
+                let isCorrect = false;
+                for (let correctAnswer of answers[id]) {
+                    if (userAnswer === correctAnswer.toLowerCase()) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback3');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Amazing!</strong> All ${correct}/${total} translations are correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 3) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Well done!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key for exact translations.`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep working on it!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key for correct translations.`;
+            }
+        }
+        
+        // Show correct answers functions
+        function showAnswers1() {
+            document.getElementById('ex1_q1').value = 'B';
+            document.getElementById('ex1_q2').value = 'C';
+            document.getElementById('ex1_q3').value = 'A';
+            document.getElementById('ex1_q4').value = 'D';
+            document.getElementById('ex1_q5').value = 'E';
+            
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('ex1_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback1');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>Correct answers shown!</strong> Study them carefully. <span class="score-badge">Answers: 1-B, 2-C, 3-A, 4-D, 5-E</span>`;
+        }
+        
+        function showAnswers2() {
+            document.getElementById('ex2_q1').value = 'accused';
+            document.getElementById('ex2_q2').value = 'jury';
+            document.getElementById('ex2_q3').value = 'sentenced';
+            document.getElementById('ex2_q4').value = 'witness';
+            document.getElementById('ex2_q5').value = 'acquitted';
+            document.getElementById('ex2_q6').value = 'trial';
+            document.getElementById('ex2_q7').value = 'law-abiding';
+            document.getElementById('ex2_q8').value = 're-offend';
+            
+            for (let i = 1; i <= 8; i++) {
+                document.getElementById('ex2_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback2');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>All correct answers shown!</strong> Review each word in context.`;
+        }
+        
+        function showAnswers3() {
+            document.getElementById('ex3_q1').value = "to be accused of theft";
+            document.getElementById('ex3_q2').value = "to commit a crime";
+            document.getElementById('ex3_q3').value = "prison sentence";
+            document.getElementById('ex3_q4').value = "to violate the law";
+            document.getElementById('ex3_q5').value = "money laundering";
+            
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('ex3_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback3');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>Perfect translations shown!</strong> These are the standard answers.`;
+        }
+    </script>
+</body>
+</html>

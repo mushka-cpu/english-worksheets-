@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Successful Business Women & Passive Voice</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px;
+            font-size: 11px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        
+        .leaders-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+        }
+        
+        .leader-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .leader-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            background-size: cover;
+            background-position: center;
+            border: 4px solid #667eea;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .leader-photo.mary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        .leader-photo.mary::before {
+            content: 'MB';
+        }
+        
+        .leader-photo.indra {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        .leader-photo.indra::before {
+            content: 'IN';
+        }
+        
+        .leader-photo.sheryl {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        .leader-photo.sheryl::before {
+            content: 'SS';
+        }
+        
+        .leader-photo.whitney {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        .leader-photo.whitney::before {
+            content: 'WW';
+        }
+        
+        .leader-box h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .leader-box .company {
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .leader-box .description {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .video-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: white;
+        }
+        
+        .video-section h3 {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .video-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .video-link {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.8;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .video-link strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .video-link a {
+            color: #fff !important;
+            text-decoration: underline !important;
+            transition: opacity 0.3s;
+        }
+        
+        .video-link a:hover {
+            opacity: 0.8;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        
+        .notes-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .notes-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        
+        .notes-box textarea {
+            width: 100%;
+            min-height: 80px;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 11px;
+            resize: vertical;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        
+        .part-section {
+            page-break-before: always;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .grammar-box {
+            background: white;
+            border: 3px solid #667eea;
+            color: #2c3e50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .grammar-box h4 {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin: -20px -20px 15px -20px;
+        }
+        
+        .grammar-box .example {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        
+        .grammar-box .example strong {
+            color: #667eea;
+            font-size: 14px;
+        }
+        
+        .grammar-box > div > p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .exercise-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .exercise-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        
+        input[type="text"], textarea {
+            border: 1px solid #667eea;
+            border-radius: 4px;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 2px rgba(118, 68, 173, 0.2);
+        }
+        
+        .save-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .save-button:hover {
+            background: #00a084;
+            transform: translateY(-2px);
+        }
+        
+        .clear-button {
+            position: fixed;
+            top: 20px;
+            right: 160px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .clear-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .check-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .check-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .show-answer-button {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .show-answer-button:hover {
+            background: #00a084;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .feedback {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .feedback.correct {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+        
+        .feedback.incorrect {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+        
+        .feedback.partial {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            display: block;
+        }
+        
+        input.correct-answer {
+            border: 2px solid #28a745 !important;
+            background: #d4edda !important;
+        }
+        
+        input.wrong-answer {
+            border: 2px solid #dc3545 !important;
+            background: #f8d7da !important;
+        }
+        
+        .score-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .answer-key {
+            background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .answer-key h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .save-button, .check-button, .show-answer-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        // Show iOS instructions if on iOS
+        window.addEventListener('DOMContentLoaded', function() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                const iosHelp = document.createElement('div');
+                iosHelp.style.cssText = 'position: fixed; bottom: 80px; right: 20px; background: #667eea; color: white; padding: 15px; border-radius: 10px; font-size: 11px; max-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999;';
+                iosHelp.innerHTML = '<strong>📱 iOS: How to Save PDF</strong><br>1. Tap Save PDF button<br>2. Pinch to zoom preview<br>3. Tap Share icon<br>4. Choose "Save to Files"<br><button onclick="this.parentElement.remove()" style="margin-top: 8px; background: white; color: #667eea; border: none; padding: 5px 10px; border-radius: 5px; font-weight: bold; cursor: pointer;">Got it!</button>';
+                document.body.appendChild(iosHelp);
+            }
+        });
+        
+        function savePDF() {
+            // Detect device type
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isAndroid = /Android/.test(navigator.userAgent);
+            const isMobile = isIOS || isAndroid;
+            
+            if (isIOS) {
+                // For iOS - use print (iOS will show PDF save options)
+                window.print();
+            } else if (isAndroid) {
+                // For Android - use print dialog
+                window.print();
+            } else {
+                // For desktop - use html2pdf
+                try {
+                    const element = document.querySelector('.container');
+                    const opt = {
+                        margin: 10,
+                        filename: 'Business_Women_Passive_Voice.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2, useCORS: true },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+                    html2pdf().set(opt).from(element).save();
+                } catch(e) {
+                    // Fallback to print
+                    window.print();
+                }
+            }
+        }
+    </script>
+    <button class="clear-button" onclick="clearAllAnswers()">🗑️ Clear All</button>
+    <button class="save-button" onclick="savePDF()">💾 Save PDF</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>👩‍💼 SUCCESSFUL BUSINESS WOMEN & THE PASSIVE VOICE</h1>
+            <div class="subtitle">Learn grammar through inspiring stories of female leaders</div>
+
+        <!-- QUESTION SECTION -->
+        <div style="margin: 20px 0; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #667eea;">
+            <p style="font-size: 15px; color: #2c3e50; font-weight: bold; line-height: 1.6; margin: 0;">
+                Do you know any of these women? What do you think they do? What role could they have had?
+            </p>
+        </div>
+
+        <!-- BUSINESS WOMEN PHOTOS -->
+        <div style="margin: 20px 0; text-align: center;">
+            <img src="data:image/png;base64,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" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Successful Business Women">
+        </div>
+
+        </div>
+
+        <!-- INTRO SECTION -->
+        <div class="section">
+            <div class="leaders-showcase">
+                <div class="leader-box">
+                    <h3>Mary Barra</h3>
+                    <div class="company">CEO, General Motors</div>
+                    <div class="description">First female CEO of a major global automaker. Under her leadership, GM has been transformed into a leader in electric vehicles and autonomous driving technology.</div>
+                </div>
+                
+                <div class="leader-box">
+                    <h3>Indra Nooyi</h3>
+                    <div class="company">Former CEO, PepsiCo</div>
+                    <div class="description">Led PepsiCo for 12 years, making crucial decisions about health-conscious products. Known for her innovative leadership and strategic vision.</div>
+                </div>
+                
+                <div class="leader-box">
+                    <h3>Sheryl Sandberg</h3>
+                    <div class="company">Former COO, Facebook/Meta</div>
+                    <div class="description">Author of "Lean In" and one of the most influential women in tech. Recognized for transforming Facebook into a profitable business giant.</div>
+                </div>
+                
+                <div class="leader-box">
+                    <h3>Whitney Wolfe Herd</h3>
+                    <div class="company">Founder & CEO, Bumble</div>
+                    <div class="description">Founded Bumble, a dating app that empowers women to make the first move. Became the youngest woman to take a company public in the US.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 1: READ THE TEXT -->
+        <div class="section">
+            <h2 class="section-title">📖 Part 1 — Read the text</h2>
+            <p style="font-size: 12px; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                Read the text and underline all passive voice sentences.
+            </p>
+            
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
+                <h4 style="color: #667eea; margin-bottom: 10px;">The Business World & Successful Women</h4>
+                <p style="line-height: 1.6; font-size: 11px;">
+                    Today, many companies are led by inspiring women. For example, PepsiCo was headed by Indra Nooyi for 12 years. Many important decisions were made during her leadership. Mary Barra has been appointed as the CEO of General Motors — she was chosen because of her innovative ideas. Countless startups are founded by women every year. Awards and honors are given to these trailblazers to recognize their contributions.
+                </p>
+            </div>
+
+            <div style="background: white; padding: 20px; border-radius: 8px; margin-top: 15px; border: 2px solid #667eea;">
+                <h4 style="color: #667eea; margin-bottom: 15px; font-size: 14px;">✍️ Write all the passive voice sentences you found:</h4>
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: #555; display: block; margin-bottom: 5px;">1.</label>
+                    <input type="text" id="passive1" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;" placeholder="e.g., are led">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: #555; display: block; margin-bottom: 5px;">2.</label>
+                    <input type="text" id="passive2" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;" placeholder="Type here...">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: #555; display: block; margin-bottom: 5px;">3.</label>
+                    <input type="text" id="passive3" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;" placeholder="Type here...">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: #555; display: block; margin-bottom: 5px;">4.</label>
+                    <input type="text" id="passive4" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;" placeholder="Type here...">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: #555; display: block; margin-bottom: 5px;">5.</label>
+                    <input type="text" id="passive5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;" placeholder="Type here...">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: #555; display: block; margin-bottom: 5px;">6.</label>
+                    <input type="text" id="passive6" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;" placeholder="Type here...">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: #555; display: block; margin-bottom: 5px;">7.</label>
+                    <input type="text" id="passive7" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;" placeholder="Type here...">
+                </div>
+                
+                <button class="check-button" onclick="checkPassiveVoice()" style="margin-top: 10px;">✓ Check My Answers</button>
+                <button class="show-answer-button" onclick="showPassiveAnswers()" style="margin-top: 10px;">👁️ Show Correct Answers</button>
+                <div id="feedbackPassive" class="feedback"></div>
+            </div>
+
+            <div class="video-section">
+                <h3>🎥 Watch the videos about these personalities. Take notes.</h3>
+                <p style="font-size: 12px; margin-bottom: 15px;"><strong>What words, phrases do you find useful?</strong></p>
+                
+                <div class="video-links">
+                    <div class="video-link">
+                        <strong>Indra Nooyi</strong>
+                        <a href="https://youtube.com/shorts/mMOS_0QWNek?feature=shared" target="_blank" style="color: white; text-decoration: underline;">• Never Ask for money, stand on your own feet</a><br>
+                        <a href="https://youtube.com/shorts/sDEXdj0U3Nw?feature=shared" target="_blank" style="color: white; text-decoration: underline;">• Office Politics advice</a>
+                    </div>
+                    <div class="video-link">
+                        <strong>Martha Stewart</strong>
+                        <a href="https://youtu.be/O_DkshXChNk?feature=shared" target="_blank" style="color: white; text-decoration: underline;">• Think Like a Boss, Live Like a Legend</a><br>
+                        <a href="https://youtube.com/shorts/4l3xRhZ0fLI?feature=shared" target="_blank" style="color: white; text-decoration: underline;">• Morning routine</a>
+                    </div>
+                    <div class="video-link">
+                        <strong>Whitney Wolfe Herd</strong>
+                        <a href="https://www.youtube.com/shorts/XGPBjUWuLFA" target="_blank" style="color: white; text-decoration: underline;">• Bumble CEO's success story</a><br>
+                        <a href="https://youtube.com/shorts/4gerg0pNQnQ?feature=shared" target="_blank" style="color: white; text-decoration: underline;">• Tough advice for entrepreneurs</a>
+                    </div>
+                    <div class="video-link">
+                        <strong>Sheryl Sandberg</strong>
+                        <a href="https://youtube.com/shorts/CVQY19yzR9E?si=HW8qJeEKki717o6Z" target="_blank" style="color: white; text-decoration: underline;">• Secret ingredient to success</a><br>
+                        <a href="https://youtube.com/shorts/Nif8Mii0V1s?si=3-mx8NNaJ0YHX7lP" target="_blank" style="color: white; text-decoration: underline;">• Untapped potential of women leaders</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes-box">
+                <h4>📝 Your Notes: Useful Words & Phrases</h4>
+                <textarea placeholder="Write down useful vocabulary, phrases, and ideas from the videos..."></textarea>
+            </div>
+        </div>
+
+        <!-- GRAMMAR EXPLANATION -->
+        <div class="section part-section">
+            <div class="grammar-box">
+                <h4>📚 PASSIVE VOICE — Quick Reference</h4>
+                <div style="font-size: 13px; line-height: 1.8; color: #2c3e50;">
+                    <p style="margin-bottom: 15px; text-align: center;"><strong style="color: #667eea; font-size: 15px;">Structure: be + past participle (V3)</strong></p>
+                    
+                    <div class="example">
+                        <strong>Present Simple:</strong> is/are + V3<br>
+                        → "The company <u>is led</u> by a woman"
+                    </div>
+                    
+                    <div class="example">
+                        <strong>Past Simple:</strong> was/were + V3<br>
+                        → "She <u>was appointed</u> CEO in 2008"
+                    </div>
+                    
+                    <div class="example">
+                        <strong>Present Perfect:</strong> has/have been + V3<br>
+                        → "Awards <u>have been given</u> to her"
+                    </div>
+                    
+                    <div class="example">
+                        <strong>Future:</strong> will be + V3<br>
+                        → "New projects <u>will be launched</u> next year"
+                    </div>
+                    
+                    <p style="margin-top: 15px; padding: 12px; background: #fff3cd; border-radius: 6px; border-left: 4px solid #ffc107;">
+                        <strong style="color: #856404;">💡 Use passive when:</strong><br>
+                        • The action is more important than who does it<br>
+                        • The doer is unknown or obvious
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 2: COMPLETE SENTENCES -->
+        <div class="section">
+            <h2 class="section-title">✍️ Part 2 — Complete the sentences</h2>
+            <p style="font-size: 11px; margin-bottom: 10px;">Fill in the blanks using the correct passive form of the verbs in brackets.</p>
+
+            <div class="exercise-box">
+                <div class="question">1. Sheryl Sandberg <input type="text" id="ex2_q1" placeholder="(appoint)" style="width: 200px;" /> COO of Facebook in 2008.</div>
+                <div class="question">2. Many books <input type="text" id="ex2_q2" placeholder="(write)" style="width: 200px;" /> about Oprah Winfrey's success story.</div>
+                <div class="question">3. Every year, new female leaders <input type="text" id="ex2_q3" placeholder="(recognize)" style="width: 200px;" /> at international conferences.</div>
+                <div class="question">4. Important meetings <input type="text" id="ex2_q4" placeholder="often (hold)" style="width: 200px;" /> by CEOs.</div>
+                <div class="question">5. New projects <input type="text" id="ex2_q5" placeholder="(launch)" style="width: 200px;" /> by these women every year.</div>
+                
+                <button class="check-button" onclick="checkExercise2()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers2()">👁️ Show Correct Answers</button>
+                <div id="feedback2" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- PART 3: TRANSFORM -->
+        <div class="section">
+            <h2 class="section-title">🔄 Part 3 — Transform active to passive</h2>
+            <p style="font-size: 11px; margin-bottom: 10px;">Rewrite these sentences in the passive voice.</p>
+
+            <div class="exercise-box">
+                <div class="question">
+                    <strong>1. Many people admire Angela Merkel for her leadership.</strong><br>
+                    <input type="text" id="ex3_q1" placeholder="Angela Merkel..." style="width: 100%; max-width: 600px;" />
+                </div>
+                <div class="question">
+                    <strong>2. A large team develops strategies for these companies.</strong><br>
+                    <input type="text" id="ex3_q2" placeholder="Strategies..." style="width: 100%; max-width: 600px;" />
+                </div>
+                <div class="question">
+                    <strong>3. They invited Whitney Wolfe Herd to speak at the event.</strong><br>
+                    <input type="text" id="ex3_q3" placeholder="Whitney Wolfe Herd..." style="width: 100%; max-width: 600px;" />
+                </div>
+                <div class="question">
+                    <strong>4. Investors support female entrepreneurs worldwide.</strong><br>
+                    <input type="text" id="ex3_q4" placeholder="Female entrepreneurs..." style="width: 100%; max-width: 600px;" />
+                </div>
+                <div class="question">
+                    <strong>5. Someone nominated Melinda Gates for several awards.</strong><br>
+                    <input type="text" id="ex3_q5" placeholder="Melinda Gates..." style="width: 100%; max-width: 600px;" />
+                </div>
+                
+                <button class="check-button" onclick="checkExercise3()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers3()">👁️ Show Correct Answers</button>
+                <div id="feedback3" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- PART 4: YOUR TURN -->
+        <div class="section">
+            <h2 class="section-title">💭 Part 4 — Your turn</h2>
+            <p style="font-size: 11px; margin-bottom: 10px;">Write 3 sentences about a successful woman you admire. Use the passive voice at least once in each sentence.</p>
+
+            <div class="exercise-box">
+                <div class="question">
+                    <strong>Sentence 1:</strong><br>
+                    <textarea id="ex4_q1" placeholder="Example: She was awarded the Nobel Prize in 2020..."></textarea>
+                </div>
+                <div class="question">
+                    <strong>Sentence 2:</strong><br>
+                    <textarea id="ex4_q2" placeholder="Write your second sentence here..."></textarea>
+                </div>
+                <div class="question">
+                    <strong>Sentence 3:</strong><br>
+                    <textarea id="ex4_q3" placeholder="Write your third sentence here..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            👩‍💼 Empowered women empower women! Great job! 🎯
+        </div>
+    </div>
+    
+    <script>
+        // AUTO-SAVE FUNCTIONALITY
+        const STORAGE_KEY = 'business_women_answers';
+        
+        // Load saved answers on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            loadSavedAnswers();
+            setupAutoSave();
+        });
+        
+        function loadSavedAnswers() {
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            if (savedData) {
+                const answers = JSON.parse(savedData);
+                for (let id in answers) {
+                    const input = document.getElementById(id);
+                    if (input) {
+                        input.value = answers[id];
+                    }
+                }
+            }
+        }
+        
+        function saveAnswers() {
+            const answers = {};
+            // Save all input fields
+            const inputs = document.querySelectorAll('input[type="text"], textarea');
+            inputs.forEach(input => {
+                if (input.id && input.value) {
+                    answers[input.id] = input.value;
+                }
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+        }
+        
+        function setupAutoSave() {
+            // Auto-save on input change
+            const inputs = document.querySelectorAll('input[type="text"], textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', saveAnswers);
+                input.addEventListener('change', saveAnswers);
+            });
+        }
+        
+        function clearAllAnswers() {
+            if (confirm('Are you sure you want to clear all your answers? This cannot be undone.')) {
+                // Clear localStorage
+                localStorage.removeItem(STORAGE_KEY);
+                
+                // Clear all input fields
+                const inputs = document.querySelectorAll('input[type="text"], textarea');
+                inputs.forEach(input => {
+                    input.value = '';
+                    input.className = ''; // Remove correct/wrong styling
+                });
+                
+                // Clear all feedback messages
+                const feedbacks = document.querySelectorAll('.feedback');
+                feedbacks.forEach(feedback => {
+                    feedback.innerHTML = '';
+                    feedback.className = 'feedback';
+                });
+                
+                alert('✅ All answers cleared successfully!');
+            }
+        }
+        
+        // Part 2 - Complete the sentences
+        function checkExercise2() {
+            const answers = {
+                'ex2_q1': ['was appointed'],
+                'ex2_q2': ['have been written', 'were written'],
+                'ex2_q3': ['are recognized', 'are recognised'],
+                'ex2_q4': ['are often held', 'are held'],
+                'ex2_q5': ['are launched']
+            };
+            
+            let correct = 0;
+            let total = 5;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim().toLowerCase();
+                
+                let isCorrect = false;
+                for (let correctAnswer of answers[id]) {
+                    if (userAnswer === correctAnswer.toLowerCase()) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback2');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Perfect!</strong> All ${correct}/${total} correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 3) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Good job!</strong> ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Try using the "Show Correct Answers" button to see the right forms.`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep trying!</strong> ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Review passive voice forms and try again.`;
+            }
+        }
+        
+        // Part 3 - Transform to passive
+        function checkExercise3() {
+            const answers = {
+                'ex3_q1': [
+                    'angela merkel is admired for her leadership',
+                    'angela merkel is admired by many people for her leadership',
+                    'angela merkel is admired (by many people) for her leadership'
+                ],
+                'ex3_q2': [
+                    'strategies are developed for these companies',
+                    'strategies are developed by a large team for these companies',
+                    'strategies are developed (by a large team) for these companies'
+                ],
+                'ex3_q3': [
+                    'whitney wolfe herd was invited to speak at the event',
+                    'whitney wolfe herd was invited (by them) to speak at the event'
+                ],
+                'ex3_q4': [
+                    'female entrepreneurs are supported worldwide',
+                    'female entrepreneurs are supported by investors worldwide',
+                    'female entrepreneurs are supported (by investors) worldwide'
+                ],
+                'ex3_q5': [
+                    'melinda gates was nominated for several awards',
+                    'melinda gates was nominated (by someone) for several awards'
+                ]
+            };
+            
+            let correct = 0;
+            let total = 5;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim().toLowerCase().replace(/[.,]/g, '');
+                
+                let isCorrect = false;
+                for (let correctAnswer of answers[id]) {
+                    if (userAnswer === correctAnswer.toLowerCase().replace(/[.,]/g, '')) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback3');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Excellent!</strong> All ${correct}/${total} transformations correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 3) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Good work!</strong> ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Use "Show Correct Answers" to see the exact wording.`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep practicing!</strong> ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Remember: Subject + be + V3 + (by agent)`;
+            }
+        }
+        
+        // Show answers for Part 2
+        function showAnswers2() {
+            document.getElementById('ex2_q1').value = 'was appointed';
+            document.getElementById('ex2_q2').value = 'have been written';
+            document.getElementById('ex2_q3').value = 'are recognized';
+            document.getElementById('ex2_q4').value = 'are often held';
+            document.getElementById('ex2_q5').value = 'are launched';
+            
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('ex2_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback2');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>Answers shown!</strong> Study the passive forms carefully.`;
+        }
+        
+        // Show answers for Part 3
+        function showAnswers3() {
+            document.getElementById('ex3_q1').value = 'Angela Merkel is admired for her leadership.';
+            document.getElementById('ex3_q2').value = 'Strategies are developed for these companies.';
+            document.getElementById('ex3_q3').value = 'Whitney Wolfe Herd was invited to speak at the event.';
+            document.getElementById('ex3_q4').value = 'Female entrepreneurs are supported worldwide.';
+            document.getElementById('ex3_q5').value = 'Melinda Gates was nominated for several awards.';
+            
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('ex3_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback3');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>Perfect transformations shown!</strong> These are the standard passive voice forms.`;
+        }
+        
+        // Check Passive Voice in Part 1
+        function checkPassiveVoice() {
+            const correctAnswers = [
+                ['are led'],
+                ['was headed'],
+                ['were made'],
+                ['has been appointed', 'have been appointed'],
+                ['was chosen'],
+                ['are founded'],
+                ['are given']
+            ];
+            
+            let correct = 0;
+            let total = 7;
+            
+            for (let i = 1; i <= 7; i++) {
+                const input = document.getElementById('passive' + i);
+                const userAnswer = input.value.trim().toLowerCase();
+                
+                let isCorrect = false;
+                for (let answer of correctAnswers[i-1]) {
+                    if (userAnswer === answer.toLowerCase() || userAnswer.includes(answer.toLowerCase())) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    input.style.border = '2px solid #28a745';
+                    input.style.background = '#d4edda';
+                    correct++;
+                } else if (userAnswer !== '') {
+                    input.style.border = '2px solid #dc3545';
+                    input.style.background = '#f8d7da';
+                }
+            }
+            
+            const feedback = document.getElementById('feedbackPassive');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Perfect!</strong> You found all ${correct}/${total} passive voice sentences! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 5) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Good job!</strong> You found ${correct}/${total} passive voice sentences. <span class="score-badge">${percentage}%</span><br>Try again or click "Show Correct Answers".`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep looking!</strong> You found ${correct}/${total} passive voice sentences. <span class="score-badge">${percentage}%</span><br>Remember: look for "be + V3" forms!`;
+            }
+        }
+        
+        // Show Passive Voice Answers
+        function showPassiveAnswers() {
+            const answers = ['are led', 'was headed', 'were made', 'has been appointed', 'was chosen', 'are founded', 'are given'];
+            
+            for (let i = 1; i <= 7; i++) {
+                const input = document.getElementById('passive' + i);
+                input.value = answers[i-1];
+                input.style.border = '2px solid #28a745';
+                input.style.background = '#d4edda';
+            }
+            
+            const feedback = document.getElementById('feedbackPassive');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>All passive voice sentences shown!</strong> These are the 7 passive voice constructions in the text.`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Review - Interactive Form</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px;
+            font-size: 11px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            font-size: 14px;
+        }
+        
+        .header .timer {
+            margin-top: 10px;
+            font-size: 16px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        
+        .part-section {
+            page-break-before: always;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #667eea;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .vocab-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .vocab-card .english {
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .vocab-card .russian {
+            color: #7f8c8d;
+            font-size: 11px;
+        }
+        
+        .category-header {
+            background: #667eea;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .vocab-category {
+            page-break-inside: avoid;
+        }
+        
+        .exercise-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .exercise-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            margin-bottom: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        
+        input[type="text"], textarea {
+            border: 1px solid #667eea;
+            border-radius: 4px;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+        
+        .word-bank {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        
+        .speaking-section {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .speaking-section h4 {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .speaking-section textarea {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            color: #2c3e50;
+        }
+        
+        .answer-key {
+            background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .answer-key h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .checklist {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .checklist-item {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        
+        .save-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .save-button:hover {
+            background: #00a084;
+            transform: translateY(-2px);
+        }
+        
+        .clear-button {
+            position: fixed;
+            top: 20px;
+            right: 160px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .clear-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .save-button {
+                display: none;
+            }
+            .check-button {
+                display: none;
+            }
+        }
+        
+        .check-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .check-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .show-answer-button {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .show-answer-button:hover {
+            background: #00a084;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .feedback {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .feedback.correct {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+        
+        .feedback.incorrect {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+        
+        .feedback.partial {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            display: block;
+        }
+        
+        input.correct-answer {
+            border: 2px solid #28a745 !important;
+            background: #d4edda !important;
+        }
+        
+        input.wrong-answer {
+            border: 2px solid #dc3545 !important;
+            background: #f8d7da !important;
+        }
+        
+        .score-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                const iosHelp = document.createElement('div');
+                iosHelp.style.cssText = 'position: fixed; bottom: 80px; right: 20px; background: #667eea; color: white; padding: 15px; border-radius: 10px; font-size: 11px; max-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999;';
+                iosHelp.innerHTML = '<strong>📱 iOS: How to Save PDF</strong><br>1. Tap Save PDF button<br>2. Pinch to zoom preview<br>3. Tap Share icon<br>4. Choose "Save to Files"<br><button onclick="this.parentElement.remove()" style="margin-top: 8px; background: white; color: #667eea; border: none; padding: 5px 10px; border-radius: 5px; font-weight: bold; cursor: pointer;">Got it!</button>';
+                document.body.appendChild(iosHelp);
+            }
+        });
+        
+        function savePDF() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isAndroid = /Android/.test(navigator.userAgent);
+            
+            if (isIOS || isAndroid) {
+                window.print();
+            } else {
+                try {
+                    const element = document.querySelector('.container');
+                    const opt = {
+                        margin: 10,
+                        filename: 'Vocabulary_Review_News_Economics.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2, useCORS: true },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+                    html2pdf().set(opt).from(element).save();
+                } catch(e) {
+                    window.print();
+                }
+            }
+        }
+    </script>
+    <button class="clear-button" onclick="clearAllAnswers()">🗑️ Clear All</button>
+    <button class="save-button" onclick="savePDF()">💾 Save PDF</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>📚 VOCABULARY REVIEW SESSION</h1>
+            <div class="subtitle">News & Media + Economic Power</div>
+            <div class="timer">⏱️ Time: 15-25 minutes</div>
+        </div>
+
+        <!-- PART 1 -->
+        <div class="section">
+            <h2 class="section-title">📖 PART 1: VOCABULARY LIST (5 мин)</h2>
+            
+            <div class="vocab-category">
+                <div class="category-header">📰 News & Media</div>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="english">news agency</div>
+                        <div class="russian">новостное агентство</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">biased</div>
+                        <div class="russian">предвзятый</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">objective</div>
+                        <div class="russian">объективный</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">cognitive bias</div>
+                        <div class="russian">когнитивное искажение</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">confirmation bias</div>
+                        <div class="russian">искажение подтверждения</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">news source</div>
+                        <div class="russian">источник новостей</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vocab-category">
+                <div class="category-header">🌏 Economic Power</div>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="english">superpower</div>
+                        <div class="russian">сверхдержава</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">cheap workforce</div>
+                        <div class="russian">дешёвая рабочая сила</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">competitive advantage</div>
+                        <div class="russian">конкурентное преимущество</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">counterfeit goods</div>
+                        <div class="russian">поддельные товары</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">industrial espionage</div>
+                        <div class="russian">промышленный шпионаж</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">to shift / shift</div>
+                        <div class="russian">смещаться / сдвиг</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vocab-category">
+                <div class="category-header">💰 Money Idioms</div>
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="english">Money talks</div>
+                        <div class="russian">Деньги решают всё</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">Money makes the world go round</div>
+                        <div class="russian">Деньги правят миром</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="english">hardly make ends meet</div>
+                        <div class="russian">едва сводить концы с концами</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 2 -->
+        <div class="section part-section">
+            <h2 class="section-title">✍️ PART 2: EXERCISES (15 мін)</h2>
+
+            <div class="exercise-box">
+                <div class="exercise-title">🔗 Exercise 1: Match (3 мін)</div>
+                <p style="margin-bottom: 10px;"><strong>Match and write your answers:</strong></p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 11px;">
+                    <div>1. biased → <input type="text" id="ex1_q1" style="width: 50px;" /></div>
+                    <div>A) сверхдержава</div>
+                    <div>2. superpower → <input type="text" id="ex1_q2" style="width: 50px;" /></div>
+                    <div>B) предвзятый</div>
+                    <div>3. shift → <input type="text" id="ex1_q3" style="width: 50px;" /></div>
+                    <div>C) сдвиг</div>
+                    <div>4. counterfeit goods → <input type="text" id="ex1_q4" style="width: 50px;" /></div>
+                    <div>D) поддельные товары</div>
+                    <div>5. news source → <input type="text" id="ex1_q5" style="width: 50px;" /></div>
+                    <div>E) источник новостей</div>
+                </div>
+                <button class="check-button" onclick="checkExercise1()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers1()">👁️ Show Correct Answers</button>
+                <div id="feedback1" class="feedback"></div>
+            </div>
+
+            <div class="exercise-box">
+                <div class="exercise-title">📝 Exercise 2: Fill the Gaps (5 мін)</div>
+                <div class="word-bank">
+                    biased, superpower, competitive advantage, hardly make ends meet, shift, news source, counterfeit, objective
+                </div>
+                <div class="question">1. Most news channels are <input type="text" id="ex2_q1" placeholder="type here" /> toward certain views.</div>
+                <div class="question">2. China has become an economic <input type="text" id="ex2_q2" placeholder="type here" />.</div>
+                <div class="question">3. There's been a <input type="text" id="ex2_q3" placeholder="type here" /> in global power.</div>
+                <div class="question">4. Poor families <input type="text" id="ex2_q4" placeholder="type here" />.</div>
+                <div class="question">5. Low costs give them a <input type="text" id="ex2_q5" placeholder="type here" />.</div>
+                <div class="question">6. The market is full of <input type="text" id="ex2_q6" placeholder="type here" /> products.</div>
+                <div class="question">7. Always check your <input type="text" id="ex2_q7" placeholder="type here" /> for accuracy.</div>
+                <div class="question">8. Good journalism should be <input type="text" id="ex2_q8" placeholder="type here" /> and fair.</div>
+                <button class="check-button" onclick="checkExercise2()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers2()">👁️ Show Correct Answers</button>
+                <div id="feedback2" class="feedback"></div>
+            </div>
+
+            <div class="exercise-box">
+                <div class="exercise-title">🔄 Exercise 3: Translate to English (4 мін)</div>
+                <div class="question">1. Предвзятое мнение → <input type="text" id="ex3_q1" style="width: 300px;" /></div>
+                <div class="question">2. Конкурентное преимущество → <input type="text" id="ex3_q2" style="width: 300px;" /></div>
+                <div class="question">3. Едва сводить концы с концами → <input type="text" id="ex3_q3" style="width: 300px;" /></div>
+                <div class="question">4. Деньги правят миром → <input type="text" id="ex3_q4" style="width: 300px;" /></div>
+                <div class="question">5. Источник новостей → <input type="text" id="ex3_q5" style="width: 300px;" /></div>
+                <button class="check-button" onclick="checkExercise3()">✓ Check Answers</button>
+                <button class="show-answer-button" onclick="showAnswers3()">👁️ Show Correct Answers</button>
+                <div id="feedback3" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- PART 3 -->
+        <div class="section part-section">
+            <h2 class="section-title">💬 PART 3: SPEAKING PRACTICE (10 мін)</h2>
+
+            <div class="speaking-section">
+                <h4>🎯 Task 1: Answer the Question (3 мін)</h4>
+                <p><strong>Q:</strong> "How has China become an economic superpower?"</p>
+                <p style="font-size: 10px; margin-bottom: 8px;"><strong>Must use:</strong> superpower, competitive advantage, cheap workforce, shift</p>
+                <textarea placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <div class="speaking-section">
+                <h4>💭 Task 2: Discussion (4 мін)</h4>
+                <p><strong>Q:</strong> "Are news sources today objective or biased?"</p>
+                <p style="font-size: 10px; margin-bottom: 8px;"><strong>Must use:</strong> biased, cognitive bias, news sources, objective/subjective</p>
+                <textarea placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <div class="speaking-section">
+                <h4>💰 Task 3: Money Idiom (3 мін)</h4>
+                <p><strong>Complete:</strong> "In the 1990s in Russia, many people __________"</p>
+                <p style="font-size: 10px; margin-bottom: 8px;"><strong>Use:</strong> hardly make ends meet / live from hand to mouth</p>
+                <textarea placeholder="Type your answer here..."></textarea>
+            </div>
+        </div>
+
+        <!-- ANSWER KEY -->
+        <!-- SELF-CHECK -->
+        <div class="section">
+            <h2 class="section-title">📊 SELF-CHECK</h2>
+            <div class="checklist">
+                <div class="checklist-item"><input type="checkbox" /> I can use 10+ new words correctly</div>
+                <div class="checklist-item"><input type="checkbox" /> I can talk about news bias and media</div>
+                <div class="checklist-item"><input type="checkbox" /> I can discuss economic power and superpowers</div>
+                <div class="checklist-item"><input type="checkbox" /> I can use money idioms naturally</div>
+                <div class="checklist-item"><input type="checkbox" /> I'm ready for the next lesson!</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            🎉 Excellent work! Keep practicing! 🚀
+        </div>
+    </div>
+    
+    <script>
+        // AUTO-SAVE FUNCTIONALITY
+        const STORAGE_KEY = 'vocabulary_review_answers';
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            loadSavedAnswers();
+            setupAutoSave();
+        });
+        
+        function loadSavedAnswers() {
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            if (savedData) {
+                const answers = JSON.parse(savedData);
+                for (let id in answers) {
+                    const input = document.getElementById(id);
+                    if (input) {
+                        input.value = answers[id];
+                    }
+                }
+            }
+        }
+        
+        function saveAnswers() {
+            const answers = {};
+            const inputs = document.querySelectorAll('input[type="text"], textarea');
+            inputs.forEach(input => {
+                if (input.id && input.value) {
+                    answers[input.id] = input.value;
+                }
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+        }
+        
+        function setupAutoSave() {
+            const inputs = document.querySelectorAll('input[type="text"], textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', saveAnswers);
+                input.addEventListener('change', saveAnswers);
+            });
+        }
+        
+        function clearAllAnswers() {
+            if (confirm('⚠️ Are you sure you want to clear all your answers? This cannot be undone.')) {
+                localStorage.removeItem(STORAGE_KEY);
+                
+                const inputs = document.querySelectorAll('input[type="text"], textarea');
+                inputs.forEach(input => {
+                    input.value = '';
+                    input.className = '';
+                });
+                
+                const feedbacks = document.querySelectorAll('.feedback');
+                feedbacks.forEach(feedback => {
+                    feedback.innerHTML = '';
+                    feedback.className = 'feedback';
+                });
+                
+                alert('✅ All answers cleared successfully!');
+            }
+        }
+        
+        // Exercise 1 - Matching
+        function checkExercise1() {
+            const answers = {
+                'ex1_q1': ['b', 'B'],
+                'ex1_q2': ['a', 'A'],
+                'ex1_q3': ['c', 'C'],
+                'ex1_q4': ['d', 'D'],
+                'ex1_q5': ['e', 'E']
+            };
+            
+            let correct = 0;
+            let total = 5;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim();
+                
+                if (answers[id].includes(userAnswer)) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback1');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Perfect!</strong> You got all ${correct}/${total} correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 3) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Good job!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Correct answers: 1-B, 2-A, 3-C, 4-D, 5-E`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep trying!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Correct answers: 1-C, 2-A, 3-B, 4-E, 5-D`;
+            }
+        }
+        
+        // Exercise 2 - Fill the gaps
+        function checkExercise2() {
+            const answers = {
+                'ex2_q1': ['biased'],
+                'ex2_q2': ['superpower'],
+                'ex2_q3': ['shift'],
+                'ex2_q4': ['hardly make ends meet'],
+                'ex2_q5': ['competitive advantage', 'a competitive advantage'],
+                'ex2_q6': ['counterfeit'],
+                'ex2_q7': ['news source', 'a news source'],
+                'ex2_q8': ['objective']
+            };
+            
+            let correct = 0;
+            let total = 8;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim().toLowerCase();
+                
+                let isCorrect = false;
+                for (let correctAnswer of answers[id]) {
+                    if (userAnswer === correctAnswer.toLowerCase()) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback2');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Excellent!</strong> You got all ${correct}/${total} correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 5) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Good effort!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key below for correct answers.`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep practicing!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key below for correct answers.`;
+            }
+        }
+        
+        // Exercise 3 - Translation
+        function checkExercise3() {
+            const answers = {
+                'ex3_q1': [
+                    "biased opinion",
+                    "biased view",
+                    "a biased opinion",
+                    "a biased view"
+                ],
+                'ex3_q2': [
+                    "competitive advantage",
+                    "a competitive advantage"
+                ],
+                'ex3_q3': [
+                    "hardly make ends meet",
+                    "to hardly make ends meet"
+                ],
+                'ex3_q4': [
+                    "money makes the world go round",
+                    "money makes the world go around"
+                ],
+                'ex3_q5': [
+                    "news source",
+                    "a news source"
+                ]
+            };
+            
+            let correct = 0;
+            let total = 5;
+            
+            for (let id in answers) {
+                const input = document.getElementById(id);
+                const userAnswer = input.value.trim().toLowerCase();
+                
+                let isCorrect = false;
+                for (let correctAnswer of answers[id]) {
+                    if (userAnswer === correctAnswer.toLowerCase()) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrect) {
+                    input.className = 'correct-answer';
+                    correct++;
+                } else {
+                    input.className = 'wrong-answer';
+                }
+            }
+            
+            const feedback = document.getElementById('feedback3');
+            const percentage = Math.round((correct / total) * 100);
+            
+            if (correct === total) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `🎉 <strong>Amazing!</strong> All ${correct}/${total} translations are correct! <span class="score-badge">${percentage}%</span>`;
+            } else if (correct >= 3) {
+                feedback.className = 'feedback partial';
+                feedback.innerHTML = `👍 <strong>Well done!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key for exact translations.`;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `📚 <strong>Keep working on it!</strong> You got ${correct}/${total} correct. <span class="score-badge">${percentage}%</span><br>Check the Answer Key for correct translations.`;
+            }
+        }
+        
+        // Show correct answers functions
+        function showAnswers1() {
+            document.getElementById('ex1_q1').value = 'B';
+            document.getElementById('ex1_q2').value = 'A';
+            document.getElementById('ex1_q3').value = 'C';
+            document.getElementById('ex1_q4').value = 'D';
+            document.getElementById('ex1_q5').value = 'E';
+            
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('ex1_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback1');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>Correct answers shown!</strong> Study them carefully. <span class="score-badge">Answers: 1-B, 2-A, 3-C, 4-D, 5-E</span>`;
+        }
+        
+        function showAnswers2() {
+            document.getElementById('ex2_q1').value = 'biased';
+            document.getElementById('ex2_q2').value = 'superpower';
+            document.getElementById('ex2_q3').value = 'shift';
+            document.getElementById('ex2_q4').value = 'hardly make ends meet';
+            document.getElementById('ex2_q5').value = 'competitive advantage';
+            document.getElementById('ex2_q6').value = 'counterfeit';
+            document.getElementById('ex2_q7').value = 'news source';
+            document.getElementById('ex2_q8').value = 'objective';
+            
+            for (let i = 1; i <= 8; i++) {
+                document.getElementById('ex2_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback2');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>All correct answers shown!</strong> Review each word in context.`;
+        }
+        
+        function showAnswers3() {
+            document.getElementById('ex3_q1').value = "biased opinion";
+            document.getElementById('ex3_q2').value = "competitive advantage";
+            document.getElementById('ex3_q3').value = "hardly make ends meet";
+            document.getElementById('ex3_q4').value = "Money makes the world go round";
+            document.getElementById('ex3_q5').value = "news source";
+            
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('ex3_q' + i).className = 'correct-answer';
+            }
+            
+            const feedback = document.getElementById('feedback3');
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = `✅ <strong>Perfect translations shown!</strong> These are the standard answers.`;
+        }
+    </script>
+</body>
+</html>

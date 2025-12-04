@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Worksheets - Student Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .worksheet-grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .worksheet-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .worksheet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .worksheet-card.business {
+            border-left-color: #667eea;
+        }
+        
+        .worksheet-card.vocabulary {
+            border-left-color: #764ba2;
+        }
+        
+        .worksheet-card.crime {
+            border-left-color: #c0392b;
+        }
+        
+        .worksheet-card.health {
+            border-left-color: #e74c3c;
+        }
+        
+        .worksheet-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .worksheet-description {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .worksheet-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #888;
+        }
+        
+        .worksheet-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .badge {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .info-box h3 {
+            color: #856404;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .info-box p {
+            color: #856404;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .worksheet-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 English Worksheets</h1>
+            <p>Interactive Learning Materials</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>📱 How to Use on Mobile:</h3>
+            <p><strong>1.</strong> Tap on any worksheet below<br>
+            <strong>2.</strong> Your answers auto-save as you type<br>
+            <strong>3.</strong> Use "Check Answers" to see results<br>
+            <strong>4.</strong> Use "Clear All" to start fresh</p>
+        </div>
+        
+        <div class="worksheet-grid">
+            <a href="Business_Women_Passive_Voice_Interactive.html" class="worksheet-card business">
+                <div class="worksheet-title">
+                    💼 Business Women & Passive Voice
+                    <span class="badge">Grammar</span>
+                </div>
+                <div class="worksheet-description">
+                    Learn passive voice through real business leaders. Includes photos, videos, and interactive exercises.
+                </div>
+                <div class="worksheet-meta">
+                    <span>⏱️ 25-30 min</span>
+                    <span>📝 3 exercises</span>
+                    <span>🎥 Video links</span>
+                </div>
+            </a>
+            
+            <a href="Vocabulary_Review_Interactive.html" class="worksheet-card vocabulary">
+                <div class="worksheet-title">
+                    📰 News & Media + Economics
+                    <span class="badge">Vocabulary</span>
+                </div>
+                <div class="worksheet-description">
+                    Master vocabulary about news media, bias, economic power, and global superpowers.
+                </div>
+                <div class="worksheet-meta">
+                    <span>⏱️ 15-25 min</span>
+                    <span>📝 3 exercises</span>
+                    <span>💬 Speaking tasks</span>
+                </div>
+            </a>
+            
+            <a href="Crime_Law_Review_Interactive.html" class="worksheet-card crime">
+                <div class="worksheet-title">
+                    ⚖️ Crime & Law
+                    <span class="badge">Vocabulary</span>
+                </div>
+                <div class="worksheet-description">
+                    Comprehensive review of legal vocabulary: court cases, types of crimes, justice and punishment.
+                </div>
+                <div class="worksheet-meta">
+                    <span>⏱️ 15-25 min</span>
+                    <span>📝 3 exercises</span>
+                    <span>💬 Speaking tasks</span>
+                </div>
+            </a>
+            
+            <a href="Health_Medicine_Review_Interactive.html" class="worksheet-card health">
+                <div class="worksheet-title">
+                    🏥 Health & Medicine
+                    <span class="badge">Vocabulary</span>
+                </div>
+                <div class="worksheet-description">
+                    Complete healthcare vocabulary: symptoms, treatments, mental health, and medical terminology.
+                </div>
+                <div class="worksheet-meta">
+                    <span>⏱️ 15-25 min</span>
+                    <span>📝 3 exercises</span>
+                    <span>💬 Speaking tasks</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>💾 Your answers are automatically saved in your browser<br>
+            🗑️ Use "Clear All" button to reset any worksheet<br>
+            📱 Works on all devices: Phone, Tablet, Computer</p>
+        </div>
+    </div>
+</body>
+</html>
