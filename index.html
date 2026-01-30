@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Worksheets - Interactive Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 24px;
+            opacity: 0.95;
+        }
+        
+        .worksheets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .worksheet-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .worksheet-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .worksheet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .worksheet-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .worksheet-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .worksheet-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .worksheet-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background: #f3f4f6;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .worksheet-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .worksheet-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 15px 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-link a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: white;
+            text-align: center;
+            margin: 60px 0 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 42px;
+            }
+            
+            .worksheets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 English Worksheets</h1>
+            <p>Interactive Grammar & Vocabulary Practice</p>
+        </div>
+        
+        <div class="worksheets-grid">
+            <!-- Movies & TV Worksheet -->
+            <div class="worksheet-card">
+                <div class="worksheet-icon">🎬</div>
+                <h2 class="worksheet-title">Movies & TV + Modal Verbs</h2>
+                <p class="worksheet-description">
+                    Complete worksheet covering movie vocabulary and modal verbs (can, must, should, may). Includes reading article, 8 interactive exercises, and grammar explanations.
+                </p>
+                <div class="worksheet-tags">
+                    <span class="tag">Modal Verbs</span>
+                    <span class="tag">Vocabulary</span>
+                    <span class="tag">Movies</span>
+                    <span class="tag">8 Exercises</span>
+                </div>
+                <a href="Movies_TV_Modal_Verbs_Worksheet.html" class="worksheet-link">Start Worksheet →</a>
+            </div>
+            
+            <!-- SMART Goals Worksheet -->
+            <div class="worksheet-card">
+                <div class="worksheet-icon">🎯</div>
+                <h2 class="worksheet-title">SMART Goals & Daily Life</h2>
+                <p class="worksheet-description">
+                    Practice vocabulary about home technology, goal setting, and adaptation. Includes used to vs get used to grammar, translation exercises, and real-life applications.
+                </p>
+                <div class="worksheet-tags">
+                    <span class="tag">SMART Goals</span>
+                    <span class="tag">Used to</span>
+                    <span class="tag">Home & Tech</span>
+                    <span class="tag">Translation</span>
+                </div>
+                <a href="SMART_Goals_Daily_Life_Worksheet.html" class="worksheet-link">Start Worksheet →</a>
+            </div>
+            
+            <!-- Political News Worksheet -->
+            <div class="worksheet-card">
+                <div class="worksheet-icon">📰</div>
+                <h2 class="worksheet-title">Political News Review</h2>
+                <p class="worksheet-description">
+                    Media literacy and political vocabulary practice. Features Trump & Maduro examples, word building exercises, true/false questions, and critical thinking tasks.
+                </p>
+                <div class="worksheet-tags">
+                    <span class="tag">Politics</span>
+                    <span class="tag">Media</span>
+                    <span class="tag">Word Building</span>
+                    <span class="tag">Critical Thinking</span>
+                </div>
+                <a href="Political_News_Review_Worksheet.html" class="worksheet-link">Start Worksheet →</a>
+            </div>
+            
+            <!-- Modals of Deduction Worksheet -->
+            <div class="worksheet-card">
+                <div class="worksheet-icon">🔍</div>
+                <h2 class="worksheet-title">Modals of Deduction</h2>
+                <p class="worksheet-description">
+                    Comprehensive practice for must/might/can't/could in present and past. Includes translation exercises (RU↔EN), deduction situations, and grammar explanations with certainty levels.
+                </p>
+                <div class="worksheet-tags">
+                    <span class="tag">Must/Might/Can't</span>
+                    <span class="tag">Translation</span>
+                    <span class="tag">Present & Past</span>
+                    <span class="tag">6 Exercises</span>
+                </div>
+                <a href="Modals_of_Deduction_Worksheet.html" class="worksheet-link">Start Worksheet →</a>
+            </div>
+            
+            <!-- Modals of Deduction Worksheet -->
+            <div class="worksheet-card">
+                <div class="worksheet-icon">🔍</div>
+                <h2 class="worksheet-title">Modals of Deduction</h2>
+                <p class="worksheet-description">
+                    Comprehensive practice for must/might/can't/could in present and past. Includes translation exercises (RU↔EN), deduction situations, and grammar explanations with certainty levels.
+                </p>
+                <div class="worksheet-tags">
+                    <span class="tag">Must/Might/Can't</span>
+                    <span class="tag">Translation</span>
+                    <span class="tag">Present & Past</span>
+                    <span class="tag">6 Exercises</span>
+                </div>
+                <a href="Modals_of_Deduction_Worksheet.html" class="worksheet-link">Start Worksheet →</a>
+            </div>
+            
+            <!-- Mixed Review Worksheet -->
+            <div class="worksheet-card">
+                <div class="worksheet-icon">📝</div>
+                <h2 class="worksheet-title">English Mixed Review</h2>
+                <p class="worksheet-description">
+                    Complete vocabulary and grammar practice covering all topics: movies, home & tech, SMART goals, travel, and expressions. Perfect for comprehensive review!
+                </p>
+                <div class="worksheet-tags">
+                    <span class="tag">Mixed Topics</span>
+                    <span class="tag">60+ Words</span>
+                    <span class="tag">Used to</span>
+                    <span class="tag">6 Exercises</span>
+                </div>
+                <a href="English_Mixed_Review_Worksheet.html" class="worksheet-link">Start Worksheet →</a>
+            </div>
+        </div>
+        
+        <h2 class="section-title">🎓 Main Learning Hub</h2>
+        
+        <div class="worksheets-grid">
+            <!-- English Learning Hub -->
+            <div class="worksheet-card" style="grid-column: 1 / -1;">
+                <div class="worksheet-icon">🌟</div>
+                <h2 class="worksheet-title">English Learning Hub - Main App</h2>
+                <p class="worksheet-description">
+                    Complete AI-powered vocabulary system with 75+ words across 7 topics. Features vocabulary bank, bulk add, AI practice exercises (multiple choice, fill-in, matching, sentence builder), import/export, and statistics tracking.
+                </p>
+                <div class="worksheet-tags">
+                    <span class="tag">75+ Words</span>
+                    <span class="tag">AI Exercises</span>
+                    <span class="tag">7 Topics</span>
+                    <span class="tag">Import/Export</span>
+                    <span class="tag">Statistics</span>
+                </div>
+                <a href="English_Learning_Hub_Complete.html" class="worksheet-link">Open Learning Hub →</a>
+            </div>
+        </div>
+        
+        <div class="back-link">
+            <a href="../index.html">← Back to Main Page</a>
+        </div>
+    </div>
+</body>
+</html>
