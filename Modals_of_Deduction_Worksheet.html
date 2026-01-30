@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modals of Deduction - Practice Worksheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.3);
+            border-radius: 25px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 52px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 22px;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #667eea;
+        }
+        
+        /* Grammar Box */
+        .grammar-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 3px solid #f59e0b;
+            border-radius: 15px;
+            padding: 35px;
+            margin: 30px 0;
+        }
+        
+        .grammar-box h3 {
+            color: #92400e;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+        
+        .grammar-rule {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border-left: 6px solid #f59e0b;
+        }
+        
+        .certainty-level {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        
+        .level-certain {
+            background: #10b981;
+            color: white;
+        }
+        
+        .level-probable {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .level-possible {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .level-impossible {
+            background: #dc2626;
+            color: white;
+        }
+        
+        .example {
+            background: #dcfce7;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: #065f46;
+        }
+        
+        .example::before {
+            content: "✓ ";
+            font-weight: bold;
+            color: #10b981;
+            font-size: 18px;
+        }
+        
+        .example-ru {
+            background: #e0e7ff;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            color: #3730a3;
+            font-size: 15px;
+        }
+        
+        .example-ru::before {
+            content: "🇷🇺 ";
+        }
+        
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 700;
+        }
+        
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:hover {
+            background: #f3f4f6;
+        }
+        
+        /* Exercise Styles */
+        .exercise {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #e5e7eb;
+        }
+        
+        .exercise-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .exercise-number {
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .question {
+            background: white;
+            padding: 28px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+        
+        .question-number {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .context {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #4b5563;
+        }
+        
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 3px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 17px;
+            margin: 15px 0;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+        }
+        
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .options {
+            display: grid;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .option {
+            padding: 18px;
+            background: white;
+            border: 3px solid #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 17px;
+        }
+        
+        .option:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+        
+        .option.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .option.correct {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        
+        .option.incorrect {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+        
+        input.correct,
+        textarea.correct {
+            border-color: #10b981;
+            background: #d1fae5;
+        }
+        
+        input.incorrect,
+        textarea.incorrect {
+            border-color: #dc2626;
+            background: #fee2e2;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 18px 45px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 12px 10px 12px 0;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+        
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .btn-show {
+            background: #0891b2;
+            color: white;
+        }
+        
+        /* Results */
+        .results {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            display: none;
+            box-shadow: 0 10px 35px rgba(16, 185, 129, 0.4);
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .results h3 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+        
+        .score {
+            font-size: 64px;
+            font-weight: 800;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: #dbeafe;
+            border: 3px solid #3b82f6;
+            border-radius: 12px;
+            padding: 28px;
+            margin: 28px 0;
+        }
+        
+        .info-box h4 {
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .info-box ul {
+            margin-left: 25px;
+        }
+        
+        .info-box li {
+            margin: 10px 0;
+        }
+        
+        /* Hint Box */
+        .hint-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .hint-box h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        /* Save Notice */
+        .save-notice {
+            background: #fef3c7;
+            border: 3px solid #f59e0b;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 50px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 17px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Modals of Deduction</h1>
+            <p>Must • Might • Could • Can't • May</p>
+        </div>
+        
+        <div class="content">
+            <!-- GRAMMAR EXPLANATION -->
+            <div class="section">
+                <h2 class="section-title">📚 Grammar: Modals of Deduction</h2>
+                
+                <div class="grammar-box">
+                    <h3>What are Modals of Deduction?</h3>
+                    <p style="font-size: 18px; margin-bottom: 20px;">We use modals of deduction to make guesses or conclusions about situations based on evidence or logic.</p>
+                    
+                    <div class="grammar-rule">
+                        <strong style="font-size: 20px;">PRESENT DEDUCTION</strong>
+                        <p style="margin: 15px 0;">Modal + base verb (for present situations)</p>
+                        
+                        <div style="margin-top: 20px;">
+                            <strong>MUST <span class="certainty-level level-certain">95% certain</span></strong><br>
+                            <span style="color: #666;">= I'm almost sure this is true (очень уверен)</span>
+                            <div class="example">She must be tired. She's been working for 12 hours.</div>
+                            <div class="example-ru">Она, должно быть, устала. Она работает уже 12 часов.</div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <strong>MIGHT / MAY / COULD <span class="certainty-level level-possible">50% certain</span></strong><br>
+                            <span style="color: #666;">= Perhaps this is true, I'm not sure (возможно)</span>
+                            <div class="example">He might be at home. I'm not sure.</div>
+                            <div class="example-ru">Он, возможно, дома. Я не уверена.</div>
+                            <div class="example">It could be true, but I doubt it.</div>
+                            <div class="example-ru">Это может быть правдой, но я сомневаюсь.</div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <strong>CAN'T <span class="certainty-level level-impossible">0% certain</span></strong><br>
+                            <span style="color: #666;">= I'm sure this is NOT true (уверен, что это не так)</span>
+                            <div class="example">That can't be John. He's in Paris right now.</div>
+                            <div class="example-ru">Это не может быть Джон. Он сейчас в Париже.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grammar-rule">
+                        <strong style="font-size: 20px;">PAST DEDUCTION</strong>
+                        <p style="margin: 15px 0;">Modal + have + past participle (for past situations)</p>
+                        
+                        <div style="margin-top: 20px;">
+                            <strong>MUST HAVE <span class="certainty-level level-certain">95% certain</span></strong><br>
+                            <span style="color: #666;">= I'm almost sure this happened (очень уверен, что это произошло)</span>
+                            <div class="example">She must have forgotten about the meeting.</div>
+                            <div class="example-ru">Она, должно быть, забыла о встрече.</div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <strong>MIGHT HAVE / MAY HAVE / COULD HAVE <span class="certainty-level level-possible">50% certain</span></strong><br>
+                            <span style="color: #666;">= Perhaps this happened (возможно, это произошло)</span>
+                            <div class="example">He might have missed the bus.</div>
+                            <div class="example-ru">Он, возможно, опоздал на автобус.</div>
+                            <div class="example">They could have gone to the cinema.</div>
+                            <div class="example-ru">Они могли пойти в кино.</div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <strong>CAN'T HAVE <span class="certainty-level level-impossible">0% certain</span></strong><br>
+                            <span style="color: #666;">= I'm sure this did NOT happen (уверен, что этого не было)</span>
+                            <div class="example">She can't have said that. She's too polite.</div>
+                            <div class="example-ru">Она не могла этого сказать. Она слишком вежливая.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>📊 Certainty Scale:</h4>
+                    <table style="background: white; margin: 15px 0;">
+                        <tr>
+                            <td><strong>100%</strong></td>
+                            <td>He IS at home. (I know for sure)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>95%</strong></td>
+                            <td>He MUST BE at home. (almost certain)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>50%</strong></td>
+                            <td>He MIGHT/MAY/COULD BE at home. (possible)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5%</strong></td>
+                            <td>He CAN'T BE at home. (almost impossible)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>0%</strong></td>
+                            <td>He ISN'T at home. (I know for sure)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 1: CHOOSE THE CORRECT MODAL -->
+            <div class="section">
+                <h2 class="section-title">✏️ Practice Exercises</h2>
+                
+                <div class="exercise">
+                    <div class="exercise-title">
+                        <div class="exercise-number">1</div>
+                        Choose the Correct Modal (Present)
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">1.</div>
+                        <div class="context">🔍 Context: The lights are on in her apartment.</div>
+                        <p>She _______ be at home.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must', 1, 1)">must</div>
+                            <div class="option" onclick="selectOption(this, 'might', 1, 1)">might</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t', 1, 1)">can't</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">2.</div>
+                        <div class="context">🔍 Context: I saw his car in the parking lot, but I'm not 100% sure.</div>
+                        <p>He _______ be in the office.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must', 1, 2)">must</div>
+                            <div class="option" onclick="selectOption(this, 'could', 1, 2)">could</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t', 1, 2)">can't</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">3.</div>
+                        <div class="context">🔍 Context: She's a vegetarian. This is a fact I know.</div>
+                        <p>She _______ eat meat.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must', 1, 3)">must</div>
+                            <div class="option" onclick="selectOption(this, 'might', 1, 3)">might</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t', 1, 3)">can't</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">4.</div>
+                        <div class="context">🔍 Context: I hear someone playing piano upstairs. Only Maria plays piano.</div>
+                        <p>That _______ be Maria.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must', 1, 4)">must</div>
+                            <div class="option" onclick="selectOption(this, 'might', 1, 4)">might</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t', 1, 4)">can't</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">5.</div>
+                        <div class="context">🔍 Context: He has been studying for three days without sleep.</div>
+                        <p>He _______ be exhausted.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must', 1, 5)">must</div>
+                            <div class="option" onclick="selectOption(this, 'may', 1, 5)">may</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t', 1, 5)">can't</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="checkExercise(1)">Check Answers</button>
+                    <button class="btn btn-secondary" onclick="resetExercise(1)">Reset</button>
+                    
+                    <div id="results1" class="results"></div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 2: PAST DEDUCTION -->
+            <div class="section">
+                <div class="exercise">
+                    <div class="exercise-title">
+                        <div class="exercise-number">2</div>
+                        Choose the Correct Modal (Past)
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">1.</div>
+                        <div class="context">🔍 Context: Her phone is off. She always keeps it on.</div>
+                        <p>She _______ her phone at home.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must have left', 2, 1)">must have left</div>
+                            <div class="option" onclick="selectOption(this, 'might have left', 2, 1)">might have left</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t have left', 2, 1)">can't have left</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">2.</div>
+                        <div class="context">🔍 Context: I'm not sure why he didn't come to the party.</div>
+                        <p>He _______ about it.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must have forgotten', 2, 2)">must have forgotten</div>
+                            <div class="option" onclick="selectOption(this, 'might have forgotten', 2, 2)">might have forgotten</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t have forgotten', 2, 2)">can't have forgotten</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">3.</div>
+                        <div class="context">🔍 Context: I saw him at 9 AM in London. The meeting was at 10 AM in Paris.</div>
+                        <p>He _______ to the meeting on time.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must have got', 2, 3)">must have got</div>
+                            <div class="option" onclick="selectOption(this, 'might have got', 2, 3)">might have got</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t have got', 2, 3)">can't have got</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">4.</div>
+                        <div class="context">🔍 Context: The door was open and items were missing.</div>
+                        <p>Someone _______ into the house.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must have broken', 2, 4)">must have broken</div>
+                            <div class="option" onclick="selectOption(this, 'could have broken', 2, 4)">could have broken</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t have broken', 2, 4)">can't have broken</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">5.</div>
+                        <div class="context">🔍 Context: She's a strict vegetarian and has been for 20 years.</div>
+                        <p>She _______ meat at the restaurant yesterday.</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'must have eaten', 2, 5)">must have eaten</div>
+                            <div class="option" onclick="selectOption(this, 'might have eaten', 2, 5)">might have eaten</div>
+                            <div class="option" onclick="selectOption(this, 'can\'t have eaten', 2, 5)">can't have eaten</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="checkExercise(2)">Check Answers</button>
+                    <button class="btn btn-secondary" onclick="resetExercise(2)">Reset</button>
+                    
+                    <div id="results2" class="results"></div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 3: COMPLETE THE SENTENCES -->
+            <div class="section">
+                <div class="exercise">
+                    <div class="exercise-title">
+                        <div class="exercise-number">3</div>
+                        Complete with the Correct Form
+                    </div>
+                    
+                    <div class="hint-box">
+                        <h4>💡 Hint:</h4>
+                        <p>Use: must (be/have), might (be/have), could (be/have), can't (be/have) + verb</p>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">1.</div>
+                        <div class="context">🔍 The office is locked and dark.</div>
+                        <p>Everyone _________________ home already. (go)</p>
+                        <input type="text" id="complete1" placeholder="must have gone">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">2.</div>
+                        <div class="context">🔍 I'm not sure, but I think I saw her car.</div>
+                        <p>She _________________ in the building. (be)</p>
+                        <input type="text" id="complete2" placeholder="might be / could be">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">3.</div>
+                        <div class="context">🔍 He's only 5 years old!</div>
+                        <p>He _________________ the book by himself. (read)</p>
+                        <input type="text" id="complete3" placeholder="can't have read">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">4.</div>
+                        <div class="context">🔍 All her clothes are wet.</div>
+                        <p>It _________________ outside. (rain)</p>
+                        <input type="text" id="complete4" placeholder="must be raining / must have rained">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">5.</div>
+                        <div class="context">🔍 Maybe he didn't receive the message.</div>
+                        <p>He _________________ his email. (check)</p>
+                        <input type="text" id="complete5" placeholder="might not have checked">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">6.</div>
+                        <div class="context">🔍 She knows everything about this topic.</div>
+                        <p>She _________________ a lot about it. (study)</p>
+                        <input type="text" id="complete6" placeholder="must have studied">
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="checkComplete()">Check Answers</button>
+                    <button class="btn btn-secondary" onclick="resetComplete()">Reset</button>
+                    
+                    <div id="results3" class="results"></div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 4: TRANSLATION RU → EN -->
+            <div class="section">
+                <div class="exercise">
+                    <div class="exercise-title">
+                        <div class="exercise-number">4</div>
+                        Translation: Russian → English
+                    </div>
+                    
+                    <div class="hint-box">
+                        <h4>💡 Подсказка:</h4>
+                        <p>Обращай внимание на степень уверенности и время (настоящее/прошедшее)!</p>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">1.</div>
+                        <p><strong>🇷🇺</strong> Она, должно быть, очень устала. (очень уверен - настоящее)</p>
+                        <input type="text" id="trans1" placeholder="She must be very tired.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">2.</div>
+                        <p><strong>🇷🇺</strong> Он, возможно, забыл о встрече. (не уверен - прошедшее)</p>
+                        <input type="text" id="trans2" placeholder="He might have forgotten about the meeting.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">3.</div>
+                        <p><strong>🇷🇺</strong> Это не может быть правдой! (уверен, что нет - настоящее)</p>
+                        <input type="text" id="trans3" placeholder="This can't be true!">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">4.</div>
+                        <p><strong>🇷🇺</strong> Они, должно быть, уже уехали. (почти уверен - прошедшее)</p>
+                        <input type="text" id="trans4" placeholder="They must have already left.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">5.</div>
+                        <p><strong>🇷🇺</strong> Она могла пойти в магазин. (возможно - прошедшее)</p>
+                        <input type="text" id="trans5" placeholder="She could have gone to the shop.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">6.</div>
+                        <p><strong>🇷🇺</strong> Он не мог этого сказать. (уверен, что нет - прошедшее)</p>
+                        <input type="text" id="trans6" placeholder="He can't have said that.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">7.</div>
+                        <p><strong>🇷🇺</strong> Ты, наверное, голодна. (очень вероятно - настоящее)</p>
+                        <input type="text" id="trans7" placeholder="You must be hungry.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">8.</div>
+                        <p><strong>🇷🇺</strong> Они, возможно, не получили сообщение. (не уверен - прошедшее)</p>
+                        <input type="text" id="trans8" placeholder="They might not have received the message.">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 5: TRANSLATION EN → RU -->
+            <div class="section">
+                <div class="exercise">
+                    <div class="exercise-title">
+                        <div class="exercise-number">5</div>
+                        Translation: English → Russian
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">1.</div>
+                        <p><strong>🇬🇧</strong> She must have missed the train.</p>
+                        <input type="text" id="trans_ru1" placeholder="Она, должно быть, опоздала на поезд.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">2.</div>
+                        <p><strong>🇬🇧</strong> He can't be at home. His car isn't there.</p>
+                        <input type="text" id="trans_ru2" placeholder="Он не может быть дома. Его машины там нет.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">3.</div>
+                        <p><strong>🇬🇧</strong> They might have gone to the cinema.</p>
+                        <input type="text" id="trans_ru3" placeholder="Они, возможно, пошли в кино.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">4.</div>
+                        <p><strong>🇬🇧</strong> It must be raining. Everyone has umbrellas.</p>
+                        <input type="text" id="trans_ru4" placeholder="Должно быть, идет дождь. У всех зонты.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">5.</div>
+                        <p><strong>🇬🇧</strong> She can't have finished already. It's too fast.</p>
+                        <input type="text" id="trans_ru5" placeholder="Она не могла уже закончить. Это слишком быстро.">
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">6.</div>
+                        <p><strong>🇬🇧</strong> You could be right. I'm not sure.</p>
+                        <input type="text" id="trans_ru6" placeholder="Ты можешь быть прав(а). Я не уверен(а).">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXERCISE 6: MAKE DEDUCTIONS -->
+            <div class="section">
+                <div class="exercise">
+                    <div class="exercise-title">
+                        <div class="exercise-number">6</div>
+                        Make Deductions from Situations
+                    </div>
+                    
+                    <div class="info-box">
+                        <h4>📝 Instructions:</h4>
+                        <p>Read the situation and make a logical deduction using modals.</p>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">1.</div>
+                        <div class="context"><strong>Situation:</strong> Your neighbor's house is completely dark at 11 PM on a weekday.</div>
+                        <p>What's your deduction?</p>
+                        <textarea id="deduce1" placeholder="They must be sleeping. / They might have gone out."></textarea>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">2.</div>
+                        <div class="context"><strong>Situation:</strong> Your colleague arrives at work with wet hair and no umbrella. It's sunny outside.</div>
+                        <p>What's your deduction?</p>
+                        <textarea id="deduce2" placeholder="She must have just showered. / She might have been to the gym."></textarea>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">3.</div>
+                        <div class="context"><strong>Situation:</strong> There are fresh flowers on the table, but you live alone.</div>
+                        <p>What's your deduction?</p>
+                        <textarea id="deduce3" placeholder="Someone must have visited. / My roommate might have bought them."></textarea>
+                    </div>
+                    
+                    <div class="question">
+                        <div class="question-number">4.</div>
+                        <div class="context"><strong>Situation:</strong> You see your friend's social media post from Paris, but she told you yesterday she was going to London.</div>
+                        <p>What's your deduction?</p>
+                        <textarea id="deduce4" placeholder="She must have changed her plans. / She could have decided to visit Paris instead."></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SAVE NOTICE -->
+            <div class="save-notice">
+                💾 <strong>Auto-Save:</strong> All your answers are automatically saved in your browser!
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Exercise answers
+        const answers = {
+            1: {
+                1: 'must',
+                2: 'could',
+                3: 'can\'t',
+                4: 'must',
+                5: 'must'
+            },
+            2: {
+                1: 'must have left',
+                2: 'might have forgotten',
+                3: 'can\'t have got',
+                4: 'must have broken',
+                5: 'can\'t have eaten'
+            }
+        };
+        
+        let selected = {1: {}, 2: {}};
+        
+        function selectOption(element, value, exerciseNum, questionNum) {
+            const siblings = element.parentElement.querySelectorAll('.option');
+            siblings.forEach(s => s.classList.remove('selected'));
+            element.classList.add('selected');
+            selected[exerciseNum][questionNum] = value;
+            saveProgress();
+        }
+        
+        function checkExercise(exerciseNum) {
+            let correct = 0;
+            const totalQuestions = Object.keys(answers[exerciseNum]).length;
+            
+            Object.keys(answers[exerciseNum]).forEach(q => {
+                const questionIndex = (exerciseNum - 1) * 5 + parseInt(q) - 1;
+                const question = document.querySelectorAll('.question')[questionIndex];
+                const options = question.querySelectorAll('.option');
+                
+                options.forEach(opt => {
+                    const optValue = opt.textContent.trim();
+                    
+                    if (optValue === answers[exerciseNum][q]) {
+                        opt.classList.add('correct');
+                    } else if (opt.classList.contains('selected')) {
+                        opt.classList.add('incorrect');
+                    }
+                    
+                    opt.style.pointerEvents = 'none';
+                });
+                
+                if (selected[exerciseNum][q] === answers[exerciseNum][q]) {
+                    correct++;
+                }
+            });
+            
+            const resultsDiv = document.getElementById('results' + exerciseNum);
+            resultsDiv.className = 'results show';
+            resultsDiv.innerHTML = `
+                <h3>Results</h3>
+                <div class="score">${correct} / ${totalQuestions}</div>
+                <p>${correct === totalQuestions ? '🎉 Perfect! You understand modals of deduction!' : correct >= 3 ? '👍 Good job! Keep practicing!' : '📚 Review the grammar rules!'}</p>
+            `;
+        }
+        
+        function resetExercise(exerciseNum) {
+            selected[exerciseNum] = {};
+            
+            const startIndex = (exerciseNum - 1) * 5;
+            for (let i = 0; i < 5; i++) {
+                const question = document.querySelectorAll('.question')[startIndex + i];
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected', 'correct', 'incorrect');
+                    opt.style.pointerEvents = 'auto';
+                });
+            }
+            
+            document.getElementById('results' + exerciseNum).className = 'results';
+            saveProgress();
+        }
+        
+        // Exercise 3: Complete sentences
+        const completeAnswers = {
+            1: ['must have gone'],
+            2: ['might be', 'could be', 'may be'],
+            3: ['can\'t have read', 'couldn\'t have read'],
+            4: ['must be raining', 'must have rained', 'must have been raining'],
+            5: ['might not have checked', 'may not have checked', 'could not have checked'],
+            6: ['must have studied']
+        };
+        
+        function checkComplete() {
+            let correct = 0;
+            
+            Object.keys(completeAnswers).forEach(q => {
+                const input = document.getElementById('complete' + q);
+                const userAnswer = input.value.trim().toLowerCase();
+                
+                const isCorrect = completeAnswers[q].some(answer => 
+                    userAnswer.includes(answer.toLowerCase())
+                );
+                
+                if (isCorrect) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                    correct++;
+                } else if (userAnswer) {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                }
+            });
+            
+            const resultsDiv = document.getElementById('results3');
+            resultsDiv.className = 'results show';
+            resultsDiv.innerHTML = `
+                <h3>Results</h3>
+                <div class="score">${correct} / 6</div>
+                <p>${correct === 6 ? '🎉 Excellent!' : correct >= 4 ? '👍 Good work!' : '📚 Keep practicing!'}</p>
+            `;
+        }
+        
+        function resetComplete() {
+            for (let i = 1; i <= 6; i++) {
+                const input = document.getElementById('complete' + i);
+                input.value = '';
+                input.classList.remove('correct', 'incorrect');
+            }
+            document.getElementById('results3').className = 'results';
+            saveProgress();
+        }
+        
+        // Auto-save
+        function saveProgress() {
+            const progress = {
+                selected1: selected[1],
+                selected2: selected[2]
+            };
+            
+            // Save complete exercises
+            for (let i = 1; i <= 6; i++) {
+                const input = document.getElementById('complete' + i);
+                if (input) progress['complete' + i] = input.value;
+            }
+            
+            // Save translations
+            for (let i = 1; i <= 8; i++) {
+                const input = document.getElementById('trans' + i);
+                if (input) progress['trans' + i] = input.value;
+            }
+            
+            for (let i = 1; i <= 6; i++) {
+                const input = document.getElementById('trans_ru' + i);
+                if (input) progress['trans_ru' + i] = input.value;
+            }
+            
+            // Save deductions
+            for (let i = 1; i <= 4; i++) {
+                const input = document.getElementById('deduce' + i);
+                if (input) progress['deduce' + i] = input.value;
+            }
+            
+            localStorage.setItem('modalsDeductionProgress', JSON.stringify(progress));
+        }
+        
+        function loadProgress() {
+            const stored = localStorage.getItem('modalsDeductionProgress');
+            if (!stored) return;
+            
+            const progress = JSON.parse(stored);
+            
+            Object.keys(progress).forEach(key => {
+                const element = document.getElementById(key);
+                if (element && progress[key]) {
+                    element.value = progress[key];
+                }
+            });
+        }
+        
+        document.addEventListener('input', saveProgress);
+        window.addEventListener('load', loadProgress);
+    </script>
+</body>
+</html>
